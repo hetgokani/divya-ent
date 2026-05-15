@@ -175,7 +175,7 @@ const MoreAboutUs = () => {
                 textShadow: "1px 1px 0px rgba(0,0,0,0.1)",
               }}
             >
-              RAJKOT INDIA • DIVYA ENTERPRISE
+              Divya Global Infra Pvt. Ltd.
             </div>
 
             <h3
@@ -200,7 +200,7 @@ const MoreAboutUs = () => {
                 marginBottom: "20px",
               }}
             >
-              Divya Enterprise didn't just grow; we{" "}
+              Divya Global Infra Pvt. Ltd. didn't just grow; we{" "}
               <strong style={{ color: theme.navyBlue }}>reinforced</strong>.
               What started as a Civil Work Contractor in 2013 has mutated into a
               strategic force in Central Government projects.

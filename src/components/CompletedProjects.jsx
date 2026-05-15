@@ -76,7 +76,7 @@ const CompletedProjects = () => {
                 letterSpacing: "4px",
               }}
             >
-              DIVYA ENTERPRISE TRACK RECORD
+              Divya Global Infra Pvt. Ltd. TRACK RECORD
             </span>
           </div>
 

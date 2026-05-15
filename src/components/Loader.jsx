@@ -319,7 +319,7 @@ const Loader = ({ setLoading }) => {
 
           {/* Typography & Progress Section */}
           <div style={styles.loadingInfo}>
-            <h1 style={styles.brandName}>DIVYA ENTERPRISE</h1>
+            <h1 style={styles.brandName}>Divya Global Infra Pvt. Ltd.</h1>
 
             <div style={styles.progressContainer}>
               <div style={styles.progressRow}>

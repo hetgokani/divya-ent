@@ -177,7 +177,7 @@ const Civil = () => {
                 marginBottom: "20px",
               }}
             >
-              Divya Enterprise undertakes massive{" "}
+              Divya Global Infra Pvt. Ltd. undertakes massive{" "}
               <strong style={{ color: theme.navyBlue }}>
                 civil infrastructure development projects
               </strong>{" "}

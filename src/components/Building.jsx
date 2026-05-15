@@ -177,7 +177,7 @@ const Building = () => {
                 marginBottom: "20px",
               }}
             >
-              Divya Enterprise executes high-profile{" "}
+              Divya Global Infra Pvt. Ltd. executes high-profile{" "}
               <strong style={{ color: theme.navyBlue }}>
                 government and institutional building projects
               </strong>{" "}

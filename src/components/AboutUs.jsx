@@ -112,7 +112,7 @@ const AboutUs = () => {
             backgroundColor: colors.primary,
           }}
         ></div>
-        DIVYA ENTERPRISE — RAJKOT INDIA
+        Divya Global Infra Pvt. Ltd.
       </div>
 
       <div

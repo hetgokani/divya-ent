@@ -176,7 +176,7 @@ const HeroSection = () => {
       <div className="construction-loader">
         <div className="loader-content">
           <div className="building-ring"></div>
-          <h2 className="loader-text">Divya Enterprise</h2>
+          <h2 className="loader-text">Divya Global Infra Pvt. Ltd.</h2>
         </div>
       </div>
 
@@ -199,7 +199,7 @@ const HeroSection = () => {
       <div className="white-tag">
         <p className="tag-subtitle">Welcome to</p>
         <h1 className="tag-title">
-          <span className="gradient-text">Divya Enterprise</span>
+          <span className="gradient-text">Divya Global Infra Pvt. Ltd.</span>
         </h1>
       </div>
     </section>

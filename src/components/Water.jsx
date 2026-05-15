@@ -177,9 +177,9 @@ const Water = () => {
                 marginBottom: "20px",
               }}
             >
-              Divya Enterprise specializes in executing large-scale water supply
-              and pipeline infrastructure projects for government authorities.
-              We handle complete pipeline solutions including{" "}
+              Divya Global Infra Pvt. Ltd. specializes in executing large-scale
+              water supply and pipeline infrastructure projects for government
+              authorities. We handle complete pipeline solutions including{" "}
               <strong style={{ color: theme.navyBlue }}>
                 installation, laying, jointing, testing, and commissioning
               </strong>{" "}

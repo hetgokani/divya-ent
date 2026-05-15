@@ -177,7 +177,7 @@ const RCC = () => {
                 marginBottom: "20px",
               }}
             >
-              Divya Enterprise provides comprehensive{" "}
+              Divya Global Infra Pvt. Ltd. provides comprehensive{" "}
               <strong style={{ color: theme.navyBlue }}>
                 RCC (Reinforced Cement Concrete) construction services
               </strong>{" "}

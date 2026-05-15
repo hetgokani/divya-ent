@@ -177,7 +177,7 @@ const WTP = () => {
                 marginBottom: "20px",
               }}
             >
-              Divya Enterprise develops modern{" "}
+              Divya Global Infra Pvt. Ltd. develops modern{" "}
               <strong style={{ color: theme.navyBlue }}>
                 water treatment infrastructure
               </strong>{" "}

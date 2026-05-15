@@ -248,7 +248,7 @@ const CareerForm = () => {
           >
             FUTURE
           </span>
-          <br /> WITH DIVYA ENTERPRISE
+          <br /> WITH Divya Global Infra Pvt. Ltd.
         </h2>
 
         {/* Dynamic accent line signature */}
@@ -295,7 +295,7 @@ const CareerForm = () => {
                   letterSpacing: "-0.5px",
                 }}
               >
-                Why Divya Enterprise?
+                Why Divya Global Infra Pvt. Ltd.?
               </h4>
               <p
                 style={{

@@ -277,7 +277,11 @@ const Footer = () => {
         <div className="footer-grid" style={styles.grid}>
           {/* Brand Column */}
           <div className="footer-brand-col">
-            <img src={logo} alt="Divya Enterprise" style={styles.logoImg} />
+            <img
+              src={logo}
+              alt="Divya Global Infra Pvt. Ltd."
+              style={styles.logoImg}
+            />
             <p style={styles.desc}>
               Pioneering infrastructure development. Delivering structural
               excellence, irrigation networks, and multi-crore public sector
@@ -405,8 +409,8 @@ const Footer = () => {
           <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
             <div>
               {/* Dynamic Auto-Updating Year */}
-              &copy; {new Date().getFullYear()} Divya Enterprise. All Rights
-              Reserved.
+              &copy; {new Date().getFullYear()} Divya Global Infra Pvt. Ltd..
+              All Rights Reserved.
             </div>
           </div>
 
