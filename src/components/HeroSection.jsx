@@ -1,23 +1,24 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const HeroSection = () => {
-  // Check if they've visited this session to bypass navigation lag
-  const isCached =
-    typeof window !== "undefined" &&
-    sessionStorage.getItem("video_loaded_before");
+  // 1. Immediate Synchronous State Check (Prevents React-level render lag)
+  const [videoLoaded, setVideoLoaded] = useState(() => {
+    if (typeof window !== "undefined") {
+      return sessionStorage.getItem("video_loaded_before") === "true";
+    }
+    return false;
+  });
 
-  // If they already loaded it this session, don't show the black screen/loader block
-  const [videoLoaded, setVideoLoaded] = useState(isCached ? true : false);
   const videoRef = useRef(null);
 
   useEffect(() => {
-    // Safety Fallback: Force loader away after 1 second max under any network situation
+    // Safety Fallback: In case browser events hang, drop loader in 400ms
     const timer = setTimeout(() => {
       setVideoLoaded(true);
       sessionStorage.setItem("video_loaded_before", "true");
-    }, 1000);
+    }, 400);
 
-    // If component mounts and video is already fully buffered/cached by browser
+    // If video is cached locally, clear loader instantly on mount
     if (videoRef.current && videoRef.current.readyState >= 3) {
       setVideoLoaded(true);
       sessionStorage.setItem("video_loaded_before", "true");
@@ -30,6 +31,11 @@ const HeroSection = () => {
     setVideoLoaded(true);
     sessionStorage.setItem("video_loaded_before", "true");
   };
+
+  // 2. Direct Runtime Inline Validation (Bypasses state delay entirely)
+  const bypassLoader =
+    typeof window !== "undefined" &&
+    sessionStorage.getItem("video_loaded_before") === "true";
 
   return (
     <section className="hero-container">
@@ -61,8 +67,9 @@ const HeroSection = () => {
             object-fit: cover; 
             object-position: center center;
             z-index: 1;
-            opacity: ${videoLoaded ? 1 : 0};
-            transition: opacity 0.3s ease-in-out;
+            /* If already cached, drop opacity transition delay completely */
+            opacity: ${videoLoaded || bypassLoader ? 1 : 0};
+            transition: ${bypassLoader ? "none" : "opacity 0.2s ease-in-out"};
           }
 
           /* SMALL WHITE TAG FLOATING OFF THE EDGE */
@@ -77,9 +84,9 @@ const HeroSection = () => {
             border-radius: 12px; 
             box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2); 
             border-left: 5px solid #62579c;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: ${videoLoaded ? "slideUpTag 0.5s ease-out 0.05s forwards" : "none"};
+            opacity: ${bypassLoader ? 1 : 0};
+            transform: ${bypassLoader ? "translateY(0)" : "translateY(20px)"};
+            animation: ${videoLoaded && !bypassLoader ? "slideUpTag 0.4s ease-out forwards" : "none"};
           }
 
           @keyframes slideUpTag {
@@ -123,13 +130,13 @@ const HeroSection = () => {
             height: 100%;
             background-color: #0b0b0f;
             z-index: 100;
-            display: flex;
+            display: ${bypassLoader ? "none" : "flex"};
             flex-direction: column;
             justify-content: center;
             align-items: center;
             pointer-events: none;
             opacity: ${videoLoaded ? 0 : 1};
-            transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1);
           }
 
           .loader-content {

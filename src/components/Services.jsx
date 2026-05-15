@@ -133,7 +133,6 @@ const Services = () => {
           height="150"
           viewBox="0 0 1000 150"
           preserveAspectRatio="none"
-          style={{ filter: "drop-shadow(0 15px 30px rgba(0,0,0,0.3))" }}
         >
           <defs>
             <clipPath id="waterClipPath">
@@ -244,7 +243,7 @@ const Services = () => {
               position: "relative",
               display: "flex",
               flexDirection: "column",
-              boxShadow: "0 20px 60px rgba(26, 25, 77, 0.04)",
+
               overflow: "hidden",
               width: "100%",
               boxSizing: "border-box", // Ensures padding doesn't add to width
