@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const HeroSection = () => {
-  // 1. Immediate Synchronous State Check (Prevents React-level render lag)
+  // 1. Immediate Synchronous State Check
   const [videoLoaded, setVideoLoaded] = useState(() => {
     if (typeof window !== "undefined") {
       return sessionStorage.getItem("video_loaded_before") === "true";
@@ -12,27 +12,44 @@ const HeroSection = () => {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    // Safety Fallback: In case browser events hang, drop loader in 400ms
-    const timer = setTimeout(() => {
-      setVideoLoaded(true);
-      sessionStorage.setItem("video_loaded_before", "true");
-    }, 400);
+    const vid = videoRef.current;
+    if (!vid) return;
 
-    // If video is cached locally, clear loader instantly on mount
-    if (videoRef.current && videoRef.current.readyState >= 3) {
+    // Explicitly force play on mount. This bypasses the React Router black-screen bug.
+    const forcePlay = () => {
+      vid.play().catch(() => {
+        // Silently catch any DOM exceptions
+      });
+    };
+
+    // Fire immediately
+    forcePlay();
+
+    // If video is already cached in memory, clear loader instantly
+    if (vid.readyState >= 2) {
       setVideoLoaded(true);
       sessionStorage.setItem("video_loaded_before", "true");
     }
+
+    // Safety Fallback: Dropped to 150ms for hyper-fast resolution
+    const timer = setTimeout(() => {
+      setVideoLoaded(true);
+      sessionStorage.setItem("video_loaded_before", "true");
+      forcePlay(); // Force it again just in case
+    }, 150);
 
     return () => clearTimeout(timer);
   }, []);
 
   const handleVideoReady = () => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
     setVideoLoaded(true);
     sessionStorage.setItem("video_loaded_before", "true");
   };
 
-  // 2. Direct Runtime Inline Validation (Bypasses state delay entirely)
+  // 2. Direct Runtime Inline Validation
   const bypassLoader =
     typeof window !== "undefined" &&
     sessionStorage.getItem("video_loaded_before") === "true";
@@ -195,6 +212,7 @@ const HeroSection = () => {
         muted
         playsInline
         preload="auto"
+        poster="/poster.jpg" /* THIS FIXES THE BLACK SCREEN INSTANTLY */
         className="hero-video"
         onLoadedData={handleVideoReady}
         onCanPlay={handleVideoReady}

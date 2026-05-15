@@ -23,19 +23,22 @@ const Footer = () => {
       { name: "Home", path: "/" },
       { name: "About Us", path: "/about" },
       { name: "Our Journey", path: "/our-journey" },
-      { name: "Board of Directors", path: "/boardofdirectors" },
+      { name: "Completed Projects", path: "/completed-projects" },
     ],
     services: [
-      { name: "Government Infrastructure", path: "/services" },
-      { name: "Canal & Irrigation", path: "/services" },
-      { name: "Elevated Storage (ESR)", path: "/services" },
-      { name: "Large Scale Pipelines", path: "/services" },
+      { name: "Water Supply & Pipeline", path: "/services/water-supply" },
+      { name: "Canal & Irrigation", path: "/services/canal-irrigation" },
+      { name: "RCC Construction", path: "/services/rcc-construction" },
+      {
+        name: "Building Construction",
+        path: "/services/building-construction",
+      },
     ],
     company: [
-      { name: "Completed Projects", path: "/completed-projects" },
-      { name: "Investor Relations", path: "/investor" },
-      { name: "Careers", path: "/career" },
-      { name: "CSR Initiatives", path: "/csr" },
+      { name: "Our Vision", path: "/our-vision" },
+      { name: "Our Mission", path: "/our-mission" },
+      { name: "Gallery", path: "/gallery" },
+      { name: "Contact Us", path: "/contact" },
     ],
   };
 
@@ -283,9 +286,9 @@ const Footer = () => {
               style={styles.logoImg}
             />
             <p style={styles.desc}>
-              Pioneering infrastructure development. Delivering structural
-              excellence, irrigation networks, and multi-crore public sector
-              projects.
+              Fill out your corporate metrics layout details below. Submitting
+              packages your operational data directly to our primary
+              administrative WhatsApp line for contract review.
             </p>
 
             {/* Address */}
@@ -309,7 +312,7 @@ const Footer = () => {
                 <br />
                 Near Nana Mova Circle, 150- Feet Ring Road,
                 <br />
-                Rajkot-360004 [Gujarat]
+                Rajkot-360004, Gujarat
               </span>
             </div>
 
@@ -328,7 +331,7 @@ const Footer = () => {
               >
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
               </svg>
-              <span>+91 96387 57366 / 72020 44744</span>
+              <span>+91 9638757366</span>
             </div>
 
             {/* Email */}
@@ -348,7 +351,7 @@ const Footer = () => {
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
               <a
-                href="mailto:divyaenterprise2015@gmail.com"
+                href="mailto:info@divyaglobalinfra.com"
                 className="footer-email-link"
                 style={{
                   color: colors.textFade,
@@ -356,7 +359,7 @@ const Footer = () => {
                   transition: "color 0.3s ease",
                 }}
               >
-                divyaenterprise2015@gmail.com
+                info@divyaglobalinfra.com
               </a>
             </div>
           </div>

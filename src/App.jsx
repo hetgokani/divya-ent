@@ -32,6 +32,7 @@ import CompletedProjectPage from "./pages/CompletedProjectPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import OngoingProjectPage from "./pages/OngoingProjectPage";
 import ContactPage from "./pages/ContactPage";
+import GalleryPage from "./pages/GalleryPage";
 const App = () => {
   // State initialization tracking the initial landing page splash load
   const [isLoading, setIsLoading] = useState(true);
@@ -65,7 +66,7 @@ const App = () => {
               <Route path="/our-mission" element={<OurMissionPage />} />
               <Route path="/our-vision" element={<OurVisionPage />} />
               <Route path="/our-journey" element={<OurJourneyPage />} />
-
+              <Route path="/gallery" element={<GalleryPage />} />
               {/* Specialization Domain Services Sub-Routes */}
               <Route path="/services/water-supply" element={<WaterPage />} />
               <Route
@@ -92,7 +93,7 @@ const App = () => {
               <Route path="/career" element={<CareerPage />} />
               <Route
                 path="/ongoing-projects"
-                element={ <OngoingProjectPage />}
+                element={<OngoingProjectPage />}
               />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>

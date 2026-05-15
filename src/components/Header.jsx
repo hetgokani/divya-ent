@@ -70,6 +70,7 @@ const Header = () => {
     },
     {
       name: "SERVICES",
+      path: "/services/water-supply",
 
       dropdown: [
         {

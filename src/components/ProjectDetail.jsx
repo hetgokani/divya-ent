@@ -185,7 +185,7 @@ const ProjectDetail = () => {
                   letterSpacing: "3px",
                 }}
               >
-                TECHNICAL SPECS OVERVIEW
+                PROJECT OVERVIEW
               </span>
             </div>
 

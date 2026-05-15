@@ -342,10 +342,8 @@ const ContactForm = () => {
               <div>
                 <h5>Corporate Office</h5>
                 <p>
-                  The Millennium, Office No. 808, 8th Floor,
-                  <br />
-                  Near Nana Mova Circle, 150- Feet Ring Road, Rajkot-360004
-                  Gujarat.
+                  The Millennium, Office No. 808, 8th Floor, Near Nana Mova
+                  Circle, 150- Feet Ring Road, Rajkot-360004 Gujarat.
                 </p>
               </div>
             </div>

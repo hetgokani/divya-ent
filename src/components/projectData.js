@@ -115,8 +115,8 @@ export const completedProjectsData = [
       "State-of-the-art water purification facility engineered with advanced filtration and chemical dosing mechanics.",
     longDescription:
       "Constructed a multi-MLD (Million Liters per Day) Water Treatment Plant from the ground up. The facility features massive RCC clariflocculators, rapid sand gravity filters, and automated chlorination systems, transforming raw surface water into 100% safe, potable drinking water for thousands of households.",
-    mainImage: wtp1,
-    allImages: [wtp1, wtp2, wtp3, wtp4],
+    mainImage: wtp2,
+    allImages: [wtp1, wtp2, wtp4],
   },
   {
     id: "secondary-water-treatment",
@@ -145,7 +145,7 @@ export const completedProjectsData = [
       "Complex installation and commissioning of heavy-duty pumping machinery and electrical control panels.",
     longDescription:
       "The mechanical heartbeat of water infrastructure. This project involved the precise alignment and installation of massive Vertical Turbine (VT) and Centrifugal pumps, heavy sluice valves, and advanced HT/LT electrical panels. The system was rigorously tested to handle immense hydraulic pressures and automated load management.",
-    mainImage: mech1,
+    mainImage: mech4,
     allImages: [mech1, mech2, mech3, mech4],
   },
 ];
