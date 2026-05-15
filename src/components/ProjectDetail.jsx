@@ -1,4 +1,3 @@
-// ProjectDetail.jsx
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,6 +13,7 @@ const ProjectDetail = () => {
     const activeProject = completedProjectsData.find((p) => p.id === id);
     if (activeProject) {
       setProject(activeProject);
+      setSelectedImgIdx(0); // Reset image index when switching projects
       window.scrollTo(0, 0);
     } else {
       navigate("/completed-projects");
@@ -37,7 +37,7 @@ const ProjectDetail = () => {
         backgroundColor: theme.white,
         backgroundImage: `linear-gradient(${theme.gridGrey} 1px, transparent 1px), linear-gradient(90deg, ${theme.gridGrey} 1px, transparent 1px)`,
         backgroundSize: "60px 60px",
-        padding: "160px 8% 120px 8%", // Safe top clearance cushion for sticky navigation lines
+        padding: "160px 8% 120px 8%",
         fontFamily: '"Montserrat", sans-serif',
         minHeight: "100vh",
       }}
@@ -92,6 +92,7 @@ const ProjectDetail = () => {
           <div>
             {/* Focal Display Board View */}
             <div
+              className="main-image-display"
               style={{
                 position: "relative",
                 height: "500px",
@@ -132,6 +133,7 @@ const ProjectDetail = () => {
                 <div
                   key={idx}
                   onClick={() => setSelectedImgIdx(idx)}
+                  className="thumbnail-box"
                   style={{
                     height: "90px",
                     cursor: "pointer",
@@ -146,7 +148,7 @@ const ProjectDetail = () => {
                 >
                   <img
                     src={img}
-                    alt="Structural subcomponent view"
+                    alt={`Structural subcomponent view ${idx + 1}`}
                     style={{
                       width: "100%",
                       height: "100%",
@@ -188,6 +190,7 @@ const ProjectDetail = () => {
             </div>
 
             <h1
+              className="project-heading"
               style={{
                 fontSize: "clamp(32px, 4vw, 52px)",
                 fontWeight: "900",
@@ -244,6 +247,21 @@ const ProjectDetail = () => {
           .detail-split-matrix {
             grid-template-columns: 1fr !important;
             gap: 50px !important;
+          }
+          .main-image-display {
+            height: 400px !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .project-heading {
+             font-size: 28px !important;
+             word-wrap: break-word;
+          }
+          .main-image-display {
+            height: 250px !important;
+          }
+          .thumbnail-box {
+            height: 60px !important;
           }
         }
       `}</style>

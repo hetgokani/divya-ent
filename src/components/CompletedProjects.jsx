@@ -1,4 +1,3 @@
-// CompletedProjects.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -30,6 +29,7 @@ const CompletedProjects = () => {
     >
       {/* Giant Background Architectural Wireframe Text */}
       <div
+        className="bg-watermark"
         style={{
           position: "absolute",
           bottom: "-5%",
@@ -56,7 +56,7 @@ const CompletedProjects = () => {
         }}
       >
         {/* --- HEADER BLOCK --- */}
-        <div style={{ marginBottom: "80px" }}>
+        <div className="header-wrapper" style={{ marginBottom: "80px" }}>
           <div
             style={{
               display: "flex",
@@ -66,6 +66,7 @@ const CompletedProjects = () => {
             }}
           >
             <div
+              className="accent-line"
               style={{ width: "60px", height: "4px", background: theme.accent }}
             />
             <span
@@ -74,13 +75,15 @@ const CompletedProjects = () => {
                 fontWeight: "900",
                 color: theme.accent,
                 letterSpacing: "4px",
+                textTransform: "uppercase",
               }}
             >
-              Divya Global Infra Pvt. Ltd. TRACK RECORD
+              Divya Global Infra Pvt. Ltd.
             </span>
           </div>
 
           <h1
+            className="portfolio-title"
             style={{
               fontSize: "clamp(45px, 7vw, 95px)",
               fontWeight: "900",
@@ -118,13 +121,17 @@ const CompletedProjects = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: index * 0.1 }}
+              transition={{ duration: 0.7, delay: (index % 3) * 0.1 }}
+              // --- NAVIGATION ON CLICK ---
+              onClick={() => navigate(`/project/${project.id}`)}
               style={{
                 backgroundColor: theme.white,
                 border: `1px solid ${theme.gridGrey}`,
                 display: "flex",
                 flexDirection: "column",
                 position: "relative",
+                height: "100%",
+                cursor: "pointer", // Indicates clickability
               }}
             >
               {/* Main Structural Frame Image */}
@@ -199,8 +206,7 @@ const CompletedProjects = () => {
                 </div>
 
                 {/* Industrial Skew Action Button */}
-                <button
-                  onClick={() => navigate(`/project/${project.id}`)}
+                <div
                   style={{
                     alignSelf: "flex-start",
                     background: "transparent",
@@ -210,7 +216,6 @@ const CompletedProjects = () => {
                     fontSize: "12px",
                     fontWeight: "900",
                     letterSpacing: "2px",
-                    cursor: "pointer",
                     textTransform: "uppercase",
                     display: "flex",
                     alignItems: "center",
@@ -240,7 +245,7 @@ const CompletedProjects = () => {
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                </button>
+                </div>
               </div>
 
               {/* Wireframe Outline Outer Border Box */}
@@ -265,6 +270,24 @@ const CompletedProjects = () => {
         @media (max-width: 900px) {
           .projects-structural-grid {
             grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .portfolio-title {
+            font-size: clamp(38px, 10vw, 50px) !important;
+            letter-spacing: -1px !important;
+          }
+          .bg-watermark {
+            display: none !important;
+          }
+          .header-wrapper {
+             text-align: center;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+          }
+          .accent-line {
+             margin: 0 auto;
           }
         }
       `}</style>
