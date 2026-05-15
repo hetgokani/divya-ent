@@ -76,7 +76,7 @@ const HeroSection = () => {
           .white-tag {
             position: absolute;
             bottom: 20px;    
-            left: 20px;      
+          
             z-index: 10;
             background: rgba(255, 255, 255, 0.95); 
             backdrop-filter: blur(8px); 
