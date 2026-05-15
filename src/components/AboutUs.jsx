@@ -112,7 +112,7 @@ const AboutUs = () => {
             backgroundColor: colors.primary,
           }}
         ></div>
-        DIVYA EXPERIENCE — RAJKOT INDIA
+        DIVYA ENTERPRISE — RAJKOT INDIA
       </div>
 
       <div
