@@ -30,7 +30,7 @@ import CareerPage from "./pages/CareerPage";
 // the components folder instead, change the keyword prefix path from "../pages/" to "../components/"
 import CompletedProjectPage from "./pages/CompletedProjectPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
-import OnGoingProjectPage from "./pages/OnGoingProjectPage";
+import OngoingProjectPage from "./pages/OngoingProjectPage";
 import ContactPage from "./pages/ContactPage";
 const App = () => {
   // State initialization tracking the initial landing page splash load
@@ -92,7 +92,7 @@ const App = () => {
               <Route path="/career" element={<CareerPage />} />
               <Route
                 path="/ongoing-projects"
-                element={<OnGoingProjectPage />}
+                element={ <OngoingProjectPage />}
               />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
