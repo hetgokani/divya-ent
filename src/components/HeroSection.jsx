@@ -1,58 +1,36 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const HeroSection = () => {
-  // 1. Immediate Synchronous State Check
-  const [videoLoaded, setVideoLoaded] = useState(() => {
-    if (typeof window !== "undefined") {
-      return sessionStorage.getItem("video_loaded_before") === "true";
-    }
-    return false;
-  });
-
+  // 1. Force the loader to be TRUE by default on every single page load.
+  // No sessionStorage tricks. It stays true until the video actually paints.
+  const [isLoading, setIsLoading] = useState(true);
   const videoRef = useRef(null);
 
   useEffect(() => {
     const vid = videoRef.current;
     if (!vid) return;
 
-    // Explicitly force play on mount. This bypasses the React Router black-screen bug.
-    const forcePlay = () => {
-      vid.play().catch(() => {
-        // Silently catch any DOM exceptions
-      });
+    const forcePlay = async () => {
+      try {
+        await vid.play();
+      } catch (error) {
+        // Silently catch autoplay restrictions
+      }
     };
 
-    // Fire immediately
     forcePlay();
 
-    // If video is already cached in memory, clear loader instantly
-    if (vid.readyState >= 2) {
-      setVideoLoaded(true);
-      sessionStorage.setItem("video_loaded_before", "true");
+    // 2. Immediate check: If the video somehow loaded instantly, drop the loader.
+    // readyState 3 or 4 means the browser has enough data to show frames.
+    if (vid.readyState >= 3) {
+      setIsLoading(false);
     }
-
-    // Safety Fallback: Dropped to 150ms for hyper-fast resolution
-    const timer = setTimeout(() => {
-      setVideoLoaded(true);
-      sessionStorage.setItem("video_loaded_before", "true");
-      forcePlay(); // Force it again just in case
-    }, 150);
-
-    return () => clearTimeout(timer);
   }, []);
 
+  // 3. This is the magic trigger. It only fires when the black screen is gone.
   const handleVideoReady = () => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
-    setVideoLoaded(true);
-    sessionStorage.setItem("video_loaded_before", "true");
+    setIsLoading(false);
   };
-
-  // 2. Direct Runtime Inline Validation
-  const bypassLoader =
-    typeof window !== "undefined" &&
-    sessionStorage.getItem("video_loaded_before") === "true";
 
   return (
     <section className="hero-container">
@@ -84,16 +62,16 @@ const HeroSection = () => {
             object-fit: cover; 
             object-position: center center;
             z-index: 1;
-            /* If already cached, drop opacity transition delay completely */
-            opacity: ${videoLoaded || bypassLoader ? 1 : 0};
-            transition: ${bypassLoader ? "none" : "opacity 0.2s ease-in-out"};
+            /* Video stays hidden (opacity 0) until isLoading is false */
+            opacity: ${isLoading ? 0 : 1};
+            transition: opacity 0.8s ease-in-out;
           }
 
           /* SMALL WHITE TAG FLOATING OFF THE EDGE */
           .white-tag {
             position: absolute;
             bottom: 20px;    
-          
+            left: 20px;
             z-index: 10;
             background: rgba(255, 255, 255, 0.95); 
             backdrop-filter: blur(8px); 
@@ -101,14 +79,10 @@ const HeroSection = () => {
             border-radius: 12px; 
             box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2); 
             border-left: 5px solid #62579c;
-            opacity: ${bypassLoader ? 1 : 0};
-            transform: ${bypassLoader ? "translateY(0)" : "translateY(20px)"};
-            animation: ${videoLoaded && !bypassLoader ? "slideUpTag 0.4s ease-out forwards" : "none"};
-          }
-
-          @keyframes slideUpTag {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+            /* Slides up smoothly only after the loader goes away */
+            opacity: ${isLoading ? 0 : 1};
+            transform: ${isLoading ? "translateY(20px)" : "translateY(0)"};
+            transition: all 0.6s ease-out 0.4s; 
           }
 
           .tag-subtitle {
@@ -138,7 +112,7 @@ const HeroSection = () => {
             display: inline-block;
           }
 
-          /* PREMIUM CONSTRUCTION LOADER BRACKET */
+          /* THE LOADER OVERLAY (COVERS THE BLACK SCREEN) */
           .construction-loader {
             position: absolute;
             top: 0;
@@ -147,13 +121,15 @@ const HeroSection = () => {
             height: 100%;
             background-color: #0b0b0f;
             z-index: 100;
-            display: ${bypassLoader ? "none" : "flex"};
+            display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             pointer-events: none;
-            opacity: ${videoLoaded ? 0 : 1};
-            transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            /* Stays fully visible as long as isLoading is true */
+            opacity: ${isLoading ? 1 : 0};
+            visibility: ${isLoading ? "visible" : "hidden"};
+            transition: opacity 0.5s ease, visibility 0.5s ease;
           }
 
           .loader-content {
@@ -164,6 +140,7 @@ const HeroSection = () => {
             gap: 24px;
           }
 
+          /* THE SPINNER YOU REQUESTED */
           .building-ring {
             width: 60px;
             height: 60px;
@@ -196,7 +173,10 @@ const HeroSection = () => {
         `}
       </style>
 
-      {/* PREMIUM CONSTRUCTION LOADER */}
+      {/* 
+        PREMIUM SPINNER LOADER 
+        This acts as a solid wall over the video until it's 100% ready. 
+      */}
       <div className="construction-loader">
         <div className="loader-content">
           <div className="building-ring"></div>
@@ -212,10 +192,12 @@ const HeroSection = () => {
         muted
         playsInline
         preload="auto"
-        poster="/poster.jpg" /* THIS FIXES THE BLACK SCREEN INSTANTLY */
         className="hero-video"
         onLoadedData={handleVideoReady}
         onCanPlay={handleVideoReady}
+        onPlaying={
+          handleVideoReady
+        } /* This is the ultimate fallback to kill the loader only when frames are moving */
       >
         <source src="/homevideo.mp4" type="video/mp4" />
       </video>
