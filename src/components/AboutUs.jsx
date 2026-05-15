@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import tank from "../assets/tank.png";
 
 const AboutUs = () => {
@@ -10,21 +10,6 @@ const AboutUs = () => {
     accent: "#E6A317",
   };
 
-  // --- 🪄 PARALLAX LOGIC FOR TANK ---
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const mouseX = useSpring(x, { stiffness: 100, damping: 30 });
-  const mouseY = useSpring(y, { stiffness: 100, damping: 30 });
-
-  const tankMoveX = useTransform(mouseX, [-0.5, 0.5], ["-25px", "25px"]);
-  const tankMoveY = useTransform(mouseY, [-0.5, 0.5], ["-25px", "25px"]);
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    x.set((e.clientX - rect.left) / rect.width - 0.5);
-    y.set((e.clientY - rect.top) / rect.height - 0.5);
-  };
-
   const stats = [
     { value: "12+", label: "YEARS ELAPSED" },
     { value: "100%", label: "SUCCESS RATE" },
@@ -33,7 +18,6 @@ const AboutUs = () => {
 
   return (
     <section
-      onMouseMove={handleMouseMove}
       style={{
         position: "relative",
         backgroundColor: colors.white,
@@ -236,8 +220,6 @@ const AboutUs = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            x: tankMoveX,
-            y: tankMoveY,
           }}
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -249,11 +231,10 @@ const AboutUs = () => {
             alt="Infrastructure Tank"
             style={{
               width: "100%",
-              maxWidth: "680px", // Increased from 450px
+              maxWidth: "680px",
               height: "auto",
               objectFit: "contain",
               zIndex: 2,
-              filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.15))",
             }}
           />
 

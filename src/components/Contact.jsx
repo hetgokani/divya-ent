@@ -58,7 +58,7 @@ const Contact = () => {
       return;
     }
 
-    const phoneNumber = "7990077971";
+    const phoneNumber = "9638757366";
     const whatsappMessage =
       `*NEW CONTACT INQUIRY*%0A` +
       `--------------------------%0A` +
@@ -331,7 +331,7 @@ const Contact = () => {
                   >
                     // PHONE NUMBER
                   </div>
-                  +91 96387 57366 / 72020 44744
+                  +91 9638757366
                 </div>
 
                 <div
@@ -352,14 +352,14 @@ const Contact = () => {
                     // EMAIL CHANNELS
                   </div>
                   <a
-                    href="mailto:divyaenterprise2015@gmail.com"
+                    href="mailto:info@divyaglobalinfra.com"
                     style={{
                       color: colors.medium,
                       textDecoration: "none",
                       transition: "color 0.2s",
                     }}
                   >
-                    divyaenterprise2015@gmail.com
+                    info@divyaglobalinfra.com
                   </a>
                 </div>
               </div>
@@ -397,7 +397,7 @@ const Contact = () => {
                 letterSpacing: "2px",
               }}
             >
-              HQ_EST.2015
+              HQ_EST.2013
             </div>
           </div>
 

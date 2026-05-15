@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const CareerForm = () => {
+const ContactForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
-    applyingFor: "",
-    experience: "",
+    subject: "",
+    message: "",
   });
 
   const colors = {
@@ -24,7 +24,7 @@ const CareerForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Strict Input Filter: If it's the phone field, only allow digits to be typed
+    // Strict Input Filter: If it's the phone field, only allow digits
     if (name === "phone") {
       const genericDigits = value.replace(/\D/g, "");
       // Limit to max 10 digits
@@ -45,16 +45,16 @@ const CareerForm = () => {
       return;
     }
 
-    const phoneNumber = "7990077971";
-    const message =
-      `*NEW CAREER APPLICATION*%0A` +
+    const phoneNumber = "8400007704";
+    const whatsappMessage =
+      `*NEW CAREER INQUIRY*%0A` +
       `*Name:* ${formData.fullName}%0A` +
-      `*Position:* ${formData.applyingFor}%0A` +
-      `*Email:* ${formData.email}%0A` +
       `*Phone:* ${formData.phone}%0A` +
-      `*Experience:* ${formData.experience}`;
+      `*Email:* ${formData.email}%0A` +
+      `*Subject:* ${formData.subject}%0A` +
+      `*Message:* ${formData.message}`;
 
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
     window.open(whatsappUrl, "_blank");
   };
 
@@ -100,21 +100,14 @@ const CareerForm = () => {
       }}
     >
       <style>{`
-        /* Desktop Base Styles matched directly to OurMission text-rhythms */
-        .career-title {
+        /* Desktop Base Styles matched directly to theme */
+        .contact-title {
           font-size: 72px;
           font-weight: 900;
           color: ${colors.primary};
           line-height: 1.1;
           letter-spacing: -3px;
           margin: 0 0 40px 0;
-        }
-        .career-desc {
-          font-size: 20px;
-          line-height: 1.8;
-          color: ${colors.medium};
-          max-width: 850px;
-          font-weight: 500;
         }
         .layout-grid {
           display: grid;
@@ -160,7 +153,7 @@ const CareerForm = () => {
           transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
           display: flex;
           align-items: center;
-          justifyContent: center;
+          justify-content: center;
           gap: 15px;
           box-shadow: 0 10px 30px rgba(26, 25, 77, 0.02);
           outline: none;
@@ -178,34 +171,56 @@ const CareerForm = () => {
           background-color: ${colors.white} !important;
         }
 
+        /* Contact Details Custom Styling */
+        .contact-item {
+          margin-bottom: 30px;
+          display: flex;
+          align-items: flex-start;
+          gap: 15px;
+        }
+        .contact-item-icon {
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+        .contact-item h5 {
+          font-size: 13px;
+          color: ${colors.accent};
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          margin: 0 0 8px 0;
+          font-weight: 800;
+        }
+        .contact-item p {
+          font-size: 16px;
+          color: ${colors.primary};
+          margin: 0;
+          font-weight: 600;
+          line-height: 1.6;
+        }
+
         /* Large Tablets */
         @media (max-width: 1024px) {
-          .career-title { font-size: 52px; letter-spacing: -2px; }
-          .career-desc { font-size: 18px; }
+          .contact-title { font-size: 52px; letter-spacing: -2px; }
           .layout-grid { grid-template-columns: 1fr !important; gap: 40px; }
         }
 
-        /* Mobile Devices mirroring OurMission fixes */
+        /* Mobile Devices */
         @media (max-width: 768px) {
-          .career-title { 
+          .contact-title { 
             font-size: 32px; 
             letter-spacing: -1px; 
             text-align: center; 
             line-height: 1.2;
           }
-          .career-desc { 
-            font-size: 15px; 
-            text-align: center; 
-            line-height: 1.6;
-          }
           .header-container { text-align: center !important; align-items: center !important; }
           .accent-line { margin: 0 auto 30px !important; width: 80px !important; }
-          .career-label { text-align: center; width: 100%; font-size: 12px; }
+          .contact-label { text-align: center; width: 100%; font-size: 12px; }
           .bg-watermark { display: none; }
           .input-row { grid-template-columns: 1fr !important; gap: 0px; }
           .info-card { padding: 40px 25px !important; text-align: center; align-items: center; }
           .form-panel { padding: 0px !important; }
           .submit-btn { width: 100% !important; min-width: 100% !important; }
+          .contact-item { justify-content: center; text-align: center; flex-direction: column; align-items: center; }
         }
       `}</style>
 
@@ -220,9 +235,8 @@ const CareerForm = () => {
           zIndex: 1,
         }}
       >
-        {/* Label configuration matching 'Our Mission' label */}
         <motion.div
-          className="career-label"
+          className="contact-label"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           style={{
@@ -234,24 +248,22 @@ const CareerForm = () => {
             textTransform: "uppercase",
           }}
         >
-          JOIN THE LEGACY
+          LET'S CONNECT
         </motion.div>
 
-        {/* Title configuration matching 'BUILDING SUSTAINABLE...' layout */}
-        <h2 className="career-title">
-          BUILD YOUR <br />
+        <h2 className="contact-title">
+          GET IN <br />
           <span
             style={{
               color: "transparent",
               WebkitTextStroke: `1.5px ${colors.primary}`,
             }}
           >
-            FUTURE
+            TOUCH
           </span>
-          <br /> WITH Divya Global Infra Pvt. Ltd.
+          <br /> WITH OUR TEAM.
         </h2>
 
-        {/* Dynamic accent line signature */}
         <motion.div
           className="accent-line"
           initial={{ width: 0 }}
@@ -264,9 +276,8 @@ const CareerForm = () => {
           }}
         />
 
-        {/* Content & Form split workspace setup */}
         <div className="layout-grid">
-          {/* LEFT SIDE: Info Card built exactly like a Pillar Card */}
+          {/* LEFT SIDE: Contact Details Card */}
           <motion.div
             className="info-card"
             variants={fadeInUp}
@@ -280,11 +291,10 @@ const CareerForm = () => {
               boxShadow: "0 20px 40px rgba(0,0,0,0.04)",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
-              gap: "40px",
+              justifyContent: "center",
             }}
           >
-            <div>
+            <div style={{ marginBottom: "20px" }}>
               <h4
                 style={{
                   fontSize: "24px",
@@ -295,64 +305,93 @@ const CareerForm = () => {
                   letterSpacing: "-0.5px",
                 }}
               >
-                Why Divya Global Infra Pvt. Ltd.?
+                Reach Out To Us
               </h4>
               <p
                 style={{
                   fontSize: "15px",
                   color: colors.medium,
                   lineHeight: "1.7",
-                  margin: 0,
+                  margin: "0 0 40px 0",
                   opacity: 0.9,
                   fontWeight: "500",
                 }}
               >
-                We don't just hire employees; we partner with professionals who
-                want to build high-impact infrastructure across Gujarat.
+                Whether you have a project in mind, need infrastructure
+                solutions, or just want to say hello, our team is ready to
+                assist you.
               </p>
             </div>
 
-            {/* Custom Updated List Configured exactly to instructions */}
-            <ul
-              style={{
-                listStyle: "none",
-                padding: 0,
-                margin: 0,
-                display: "flex",
-                flexDirection: "column",
-                gap: "20px",
-              }}
-            >
-              {[
-                "In WhatsApp HR will message you",
-                "Send your CV while submitting your CV",
-                "Technical Innovation & Growth",
-              ].map((item, i) => (
-                <li
-                  key={i}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "14px",
-                    fontWeight: "700",
-                    fontSize: "13.5px",
-                    color: colors.primary,
-                    letterSpacing: "0.2px",
-                  }}
+            <div className="contact-item">
+              <div className="contact-item-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke={colors.accent}
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <div
-                    style={{
-                      width: "6px",
-                      height: "6px",
-                      backgroundColor: colors.accent,
-                      borderRadius: "50%",
-                      flexShrink: 0,
-                    }}
-                  />
-                  {item}
-                </li>
-              ))}
-            </ul>
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <h5>Corporate Office</h5>
+                <p>
+                  The Millennium, Office No. 808, 8th Floor,
+                  <br />
+                  Near Nana Mova Circle, 150- Feet Ring Road, Rajkot-360004
+                  Gujarat.
+                </p>
+              </div>
+            </div>
+
+            <div className="contact-item">
+              <div className="contact-item-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke={colors.accent}
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div>
+                <h5>Phone</h5>
+                <p>+91 8400007704</p>
+              </div>
+            </div>
+
+            <div className="contact-item">
+              <div className="contact-item-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke={colors.accent}
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h5>Email</h5>
+                <p>hr@divyaglobalinfra.com</p>
+              </div>
+            </div>
           </motion.div>
 
           {/* RIGHT SIDE: Interactive Form Area */}
@@ -369,39 +408,19 @@ const CareerForm = () => {
             }}
           >
             <form onSubmit={handleSubmit}>
-              <input
-                name="fullName"
-                placeholder="FULL NAME"
-                required
-                style={inputStyle}
-                onChange={handleChange}
-                value={formData.fullName}
-              />
-
-              <input
-                name="applyingFor"
-                placeholder="WHAT POSITION ARE YOU APPLYING FOR?"
-                required
-                style={inputStyle}
-                onChange={handleChange}
-                value={formData.applyingFor}
-              />
-
               <div className="input-row">
                 <input
-                  name="email"
-                  type="email"
-                  placeholder="EMAIL ADDRESS"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  name="fullName"
+                  placeholder="FULL NAME"
                   required
                   style={inputStyle}
                   onChange={handleChange}
-                  value={formData.email}
+                  value={formData.fullName}
                 />
                 <input
                   name="phone"
                   type="tel"
-                  placeholder="10-DIGIT PHONE NUMBER"
+                  placeholder="10-DIGIT PHONE"
                   pattern="[0-9]{10}"
                   required
                   style={inputStyle}
@@ -410,17 +429,36 @@ const CareerForm = () => {
                 />
               </div>
 
+              <input
+                name="email"
+                type="email"
+                placeholder="EMAIL ADDRESS"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                required
+                style={inputStyle}
+                onChange={handleChange}
+                value={formData.email}
+              />
+
+              <input
+                name="subject"
+                placeholder="SUBJECT OR INQUIRY TYPE"
+                required
+                style={inputStyle}
+                onChange={handleChange}
+                value={formData.subject}
+              />
+
               <textarea
-                name="experience"
-                placeholder="TELL US ABOUT YOUR EXPERTISE AND JOURNEY..."
-                rows="4"
+                name="message"
+                placeholder="HOW CAN WE HELP YOU?"
+                rows="5"
                 required
                 style={{ ...inputStyle, resize: "none", marginBottom: "35px" }}
                 onChange={handleChange}
-                value={formData.experience}
+                value={formData.message}
               />
 
-              {/* Wrapped submission layout block to force true element alignment centering */}
               <div
                 style={{
                   display: "flex",
@@ -429,7 +467,7 @@ const CareerForm = () => {
                 }}
               >
                 <button type="submit" className="submit-btn">
-                  SUBMIT VIA WHATSAPP
+                  SEND MESSAGE
                   <div
                     className="accent-bar"
                     style={{
@@ -453,7 +491,7 @@ const CareerForm = () => {
           position: "absolute",
           bottom: "-40px",
           right: "-20px",
-          fontSize: "15vw",
+          fontSize: "14vw",
           fontWeight: "900",
           color: colors.line,
           zIndex: 0,
@@ -462,10 +500,10 @@ const CareerForm = () => {
           opacity: 0.5,
         }}
       >
-        CAREERS
+        CONTACT
       </div>
     </section>
   );
 };
 
-export default CareerForm;
+export default ContactForm;

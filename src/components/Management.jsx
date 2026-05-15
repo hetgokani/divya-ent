@@ -33,7 +33,7 @@ const Management = () => {
       name: "Mr. Pravin Sagpariya",
       img: ceo2,
       role: "Director – Strategy & Administration",
-      bio: "A visionary leader driving the business development and administrative core of Divya Enterprise. With over 8 years of specialized experience in high-stakes Government Projects, he oversees financial planning, taxation, and procurement strategies. By proactively monitoring market shifts and project milestones, he ensures the company maintains its reputation for administrative excellence and structural growth.",
+      bio: "A visionary leader driving the business development and administrative core of Divya Global Infra Pvt. Ltd. With over 8 years of specialized experience in high-stakes Government Projects, he oversees financial planning, taxation, and procurement strategies. By proactively monitoring market shifts and project milestones, he ensures the company maintains its reputation for administrative excellence and structural growth.",
     },
     {
       name: "Mr. Pravin Kotadiya",
@@ -177,7 +177,7 @@ const Management = () => {
                     boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
                   }}
                 >
-                  PARTNER
+                  DIRECTOR
                 </div>
               </motion.div>
             </motion.div>

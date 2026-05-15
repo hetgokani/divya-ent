@@ -143,9 +143,10 @@ const Header = () => {
       flexShrink: 0,
     },
     logoImage: {
-      height: isMobile ? "35px" : isNarrowDesktop ? "45px" : "55px",
+      height: isMobile ? "55px" : isNarrowDesktop ? "65px" : "75px",
       width: "auto",
       objectFit: "contain",
+      marginTop: "15px",
       transition: "height 0.3s ease",
     },
     desktopNav: {

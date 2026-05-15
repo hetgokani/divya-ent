@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 // Replace this with your actual image path when ready
-import roadImg from "../assets/s6.png";
+import roadImg from "../assets/s6.webp";
 
 const Civil = () => {
   const theme = {
@@ -75,6 +75,18 @@ const Civil = () => {
             gap: 20px !important; 
           }
           .hero-text { font-size: clamp(32px, 10vw, 42px) !important; }
+        }
+
+        /* NEW MEDIA QUERY FOR SMALL MOBILE (Fixes long titles & bullet grids) */
+        @media (max-width: 480px) {
+          .hero-text { 
+            font-size: clamp(22px, 7vw, 26px) !important; 
+            line-height: 1.15 !important;
+            word-wrap: break-word !important;
+          }
+          .scope-list {
+            grid-template-columns: 1fr !important; /* Stack bullets on mobile */
+          }
         }
       `}</style>
 
@@ -222,13 +234,14 @@ const Civil = () => {
                 Infrastructure Scope
               </h4>
               <ul
+                className="scope-list"
                 style={{
                   listStyle: "none",
                   padding: 0,
                   margin: 0,
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
-                  gap: "10px",
+                  gap: "12px",
                 }}
               >
                 {[
@@ -246,16 +259,20 @@ const Civil = () => {
                       fontWeight: "600",
                       fontSize: "15px",
                       display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
+                      alignItems: "flex-start" /* Fixes wrapping alignment */,
+                      lineHeight: "1.4",
+                      gap: "10px",
                     }}
                   >
                     <div
                       style={{
                         width: "6px",
                         height: "6px",
+                        minWidth: "6px" /* Prevents bullet from shrinking */,
                         backgroundColor: theme.navyBlue,
                         borderRadius: "50%",
+                        marginTop:
+                          "7px" /* Aligns perfectly with the first line of text */,
                       }}
                     />
                     {item}

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 // Replace this with your actual image path when ready
-import buildingImg from "../assets/s5.png";
+import buildingImg from "../assets/s5.webp";
 
 const Building = () => {
   const theme = {
@@ -200,22 +200,23 @@ const Building = () => {
               quality, durability, and timely delivery.
             </p>
 
-            {/* Scope of Work / Materials */}
+            {/* --- FIXED DOTS SECTION --- */}
             <div
               style={{
                 background: theme.lightGrey,
                 borderLeft: `6px solid ${theme.gold}`,
-                padding: "30px",
+                padding: "35px",
                 boxShadow: "0 10px 30px rgba(0,0,0,0.03)",
               }}
             >
               <h4
                 style={{
-                  margin: "0 0 15px 0",
+                  margin: "0 0 25px 0",
                   color: theme.navyBlue,
                   fontWeight: "800",
                   textTransform: "uppercase",
                   letterSpacing: "1px",
+                  fontSize: "16px",
                 }}
               >
                 Construction Capabilities
@@ -226,8 +227,9 @@ const Building = () => {
                   padding: 0,
                   margin: 0,
                   display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "10px",
+                  // Properly handles column layout on different screens
+                  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                  gap: "18px",
                 }}
               >
                 {[
@@ -245,16 +247,20 @@ const Building = () => {
                       fontWeight: "600",
                       fontSize: "15px",
                       display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
+                      alignItems: "flex-start", // Anchors dot to the top of text
+                      gap: "12px",
+                      lineHeight: "1.5",
                     }}
                   >
+                    {/* CUSTOM ALIGNED DOT */}
                     <div
                       style={{
-                        width: "6px",
-                        height: "6px",
+                        width: "8px",
+                        height: "8px",
                         backgroundColor: theme.navyBlue,
                         borderRadius: "50%",
+                        marginTop: "7px", // Fine-tuned vertical alignment
+                        flexShrink: 0, // Prevents dot from warping
                       }}
                     />
                     {item}

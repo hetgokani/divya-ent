@@ -1,5 +1,5 @@
 // src/components/projectData.js
-import img1 from "../assets/s6.png";
+import img1 from "../assets/s6.webp";
 import img2 from "../assets/tank.png";
 
 export const completedProjectsData = [

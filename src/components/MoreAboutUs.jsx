@@ -78,6 +78,12 @@ const MoreAboutUs = () => {
           .hero-text { font-size: clamp(35px, 10vw, 45px) !important; }
           .side-text-decor { display: none; }
         }
+          @media (max-width: 1024px) {
+    .header-block {
+        margin-bottom: 30px !important;
+        margin-top: 40px !important;
+    }
+}
       `}</style>
 
       {/* Grid Overlay */}

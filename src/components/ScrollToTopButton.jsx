@@ -1,39 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { PiPipeLight } from "react-icons/pi";
+import smLogo from "../assets/smlogo.jpg";
+
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [rotation, setRotation] = useState(0);
 
-  const colors = {
-    primary: "#1A194D", // Heavy Navy Blue
-    icon: "#FFFFFF", // Clean White
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
+      setIsVisible(currentScroll > 300);
 
-      // 1. Handle Visibility
-      if (currentScroll > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-
-      // 2. Handle Rotation (1 degree for every 2 pixels scrolled)
-      setRotation(currentScroll / 2);
+      // SLOWED DOWN: Changed from / 2 to / 8 for a subtle, premium spin
+      setRotation(currentScroll / 8);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -47,50 +33,48 @@ const ScrollToTopButton = () => {
       transition={{ duration: 0.3 }}
       onClick={scrollToTop}
       style={{
-        pointerEvents: isVisible ? "auto" : "none", // Prevent clicking when hidden
+        pointerEvents: isVisible ? "auto" : "none",
         position: "fixed",
         bottom: "30px",
-        right: "15px", // Kept tight to the right side
+        right: "20px",
         zIndex: 9999,
-        backgroundColor: colors.primary,
-        border: "none",
+        backgroundColor: "#FFFFFF",
+        border: "1px solid #f0f0f0",
         borderRadius: "50%",
-        width: "48px",
-        height: "48px",
+        // Balanced width and height to be a perfect circle
+        width: "50px",
+        height: "50px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         cursor: "pointer",
-        boxShadow: `0px 6px 15px rgba(26, 25, 77, 0.4)`,
-        WebkitTapHighlightColor: "transparent",
+        boxShadow: "0px 10px 25px rgba(0, 0, 0, 0.15)",
+        overflow: "hidden",
+        padding: "0",
       }}
     >
-      <div
+      <motion.div
+        animate={{ rotate: rotation }}
+        // Linear ease makes the manual scroll tracking feel connected to your finger
+        transition={{ type: "tween", ease: "linear", duration: 0 }}
         style={{
-          position: "relative",
-          width: "28px",
-          height: "28px",
+          width: "100%",
+          height: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        {/* ROTATING ARCHITECTURE ICON */}
-        <motion.div
-          // Apply the rotation state directly to Framer Motion's animate property
-          animate={{ rotate: rotation }}
-          // A tiny tween makes the manual state updates look buttery smooth
-          transition={{ type: "tween", ease: "linear", duration: 0.1 }}
+        <img
+          src={smLogo}
+          alt="Logo"
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: colors.icon,
+            width: "70%", // Shrinking logo slightly inside the circle for a cleaner look
+            height: "80%",
+            objectFit: "contain",
           }}
-        >
-          <PiPipeLight size={24} />
-        </motion.div>
-      </div>
+        />
+      </motion.div>
     </motion.button>
   );
 };
