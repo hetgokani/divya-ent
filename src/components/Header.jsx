@@ -104,7 +104,7 @@ const Header = () => {
         { name: "Ongoing Projects", path: "/ongoing-projects" },
       ],
     },
-    { name: "INVESTOR", path: "/investor" },
+
     { name: "CAREER", path: "/career" },
     { name: "GALLERY", path: "/gallery" },
     { name: "CSR", path: "/csr" },
