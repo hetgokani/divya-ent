@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import ceo1 from "../assets/ceo1.PNG";
-import ceo2 from "../assets/ceo2.PNG";
+import ceo1 from "../assets/ceo1.jpeg";
+import ceo2 from "../assets/ceo2.jpeg";
 
 const Management = () => {
   const colors = {
@@ -31,15 +31,15 @@ const Management = () => {
   const leaders = [
     {
       name: "Mr. Pravin Sagpariya",
-      img: ceo2,
-      role: "Director – Strategy & Administration",
-      bio: "A visionary leader driving the business development and administrative core of Divya Global Infra Pvt. Ltd. With over 8 years of specialized experience in high-stakes Government Projects, he oversees financial planning, taxation, and procurement strategies. By proactively monitoring market shifts and project milestones, he ensures the company maintains its reputation for administrative excellence and structural growth.",
+      img: ceo1,
+      role: "Strategic Business Leader",
+      bio: "Pravin Sagpariya is a visionary entrepreneur and strategic leader driving the company’s growth and success in the construction industry. With strong business expertise, innovative thinking, and a commitment to quality, he focuses on expanding the company’s vision while ensuring excellence in every project. His leadership, market understanding, and client-centric approach continue to strengthen the company’s reputation and long-term development.",
     },
     {
       name: "Mr. Pravin Kotadiya",
-      img: ceo1,
-      role: "Director – Operations & Engineering",
-      bio: "The technical powerhouse of the organization, specializing in complex engineering services including pipeline infrastructure, irrigation pumping, and large-scale canal construction. He manages site operations and technical engineering teams with precision. Through rigorous quality control and regular policy briefings, he ensures that every project is executed with the highest level of technical proficiency in the industry.",
+      img: ceo2,
+      role: "Operations Excellence Leader",
+      bio: "With a proud background in the armed forces, Pravin Kotadiya brings discipline, dedication, and operational excellence to the organization. His leadership ensures timely project execution, strong team coordination, safety, and precision in every aspect of construction. Known for his integrity, commitment, and professional approach, he plays a key role in maintaining the company’s high standards and reliability.",
     },
   ];
 

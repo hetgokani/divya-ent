@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import ceo1 from "../assets/ceo1.PNG";
-import ceo2 from "../assets/ceo2.PNG";
+import ceo1 from "../assets/ceo1.jpeg";
+import ceo2 from "../assets/ceo2.jpeg";
 
 const DirectorBoard = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -25,17 +25,15 @@ const DirectorBoard = () => {
   const leaders = [
     {
       name: "Mr. Pravin Sagpariya",
-      img: ceo2,
-      role: "Director – Strategic & Administrative",
-      bio: "Directs the business development, project administration, and financial management of the company. With over 8 years of specialized experience in Government Projects, he proactively optimizes administrative workflows and reviews project progress to maintain the highest standards of quality and efficiency in the industry.",
-      unit: "DIRECTOR",
+      img: ceo1,
+      role: "Strategic Business Leader",
+      bio: "Pravin Sagpariya is a visionary entrepreneur and strategic leader driving the company’s growth and success in the construction industry. With strong business expertise, innovative thinking, and a commitment to quality, he focuses on expanding the company’s vision while ensuring excellence in every project. His leadership, market understanding, and client-centric approach continue to strengthen the company’s reputation and long-term development.",
     },
     {
       name: "Mr. Pravin Kotadiya",
-      img: ceo1,
-      role: "Director – Operations & Technical",
-      bio: "An expert in civil engineering services, including the laying and jointing of major pipelines, irrigation pumping systems, and canal construction. He oversees all field operations and site engineering, ensuring technical excellence and market-leading performance through rigorous team training and adherence to company policy.",
-      unit: "DIRECTOR",
+      img: ceo2,
+      role: "Operations Excellence Leader",
+      bio: "With a proud background in the armed forces, Pravin Kotadiya brings discipline, dedication, and operational excellence to the organization. His leadership ensures timely project execution, strong team coordination, safety, and precision in every aspect of construction. Known for his integrity, commitment, and professional approach, he plays a key role in maintaining the company’s high standards and reliability.",
     },
   ];
 
