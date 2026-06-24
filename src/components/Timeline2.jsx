@@ -46,7 +46,7 @@ const Timeline = () => {
     },
     {
       year: "2026",
-      title: "GLOBAL IDENTITY",
+      title: "A NEW ERA BEGINS",
       desc: "Officially transitioned from Divya Enterprise to Divya Global Infra Pvt. Ltd. marking a new milestone in corporate growth and infrastructure excellence.",
     },
   ];

@@ -164,12 +164,6 @@ const HeroSection = () => {
       </div>
 
       {/* COMPACT FLOATING TAG */}
-      <div className="white-tag">
-        <p className="tag-subtitle">Welcome to</p>
-        <h1 className="tag-title">
-          <span className="gradient-text">Divya Global Infra Pvt. Ltd.</span>
-        </h1>
-      </div>
     </section>
   );
 };
