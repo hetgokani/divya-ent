@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 // Import your logos based on the asset folder screenshot
 import oldLogo from "../assets/oldlogo.jpg";
@@ -12,13 +11,6 @@ const Rename = () => {
     white: "#FFFFFF",
     line: "rgba(26, 25, 77, 0.08)",
     textGrey: "#4b5563",
-  };
-
-  const fadeUp = {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, ease: "easeOut" },
-    viewport: { once: true, margin: "-50px" },
   };
 
   return (
@@ -154,10 +146,7 @@ const Rename = () => {
       <div className="rename-container">
         {/* HEADER SECTION */}
         <div style={{ textAlign: "center", marginBottom: "20px" }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             style={{
               display: "inline-block",
               padding: "6px 20px",
@@ -171,11 +160,10 @@ const Rename = () => {
             }}
           >
             OUR LEGACY
-          </motion.div>
+          </div>
 
-          <motion.h2
+          <h2
             className="rename-title"
-            {...fadeUp}
             style={{
               fontSize: "clamp(40px, 6vw, 65px)",
               fontWeight: "900",
@@ -195,18 +183,13 @@ const Rename = () => {
             >
               SAME VISION.
             </span>
-          </motion.h2>
+          </h2>
         </div>
 
         {/* TRANSFORMATION GRAPHIC */}
         <div className="transform-wrapper">
           {/* OLD COMPANY BOX */}
-          <motion.div
-            className="entity-box old"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className="entity-box old">
             <div
               style={{
                 fontSize: "11px",
@@ -243,17 +226,12 @@ const Rename = () => {
             >
               DIVYA ENTERPRISE
             </h3>
-          </motion.div>
+          </div>
 
-          {/* ANIMATED ARROW */}
-          <motion.div
-            className="arrow-container"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
+          {/* STATIC ARROW */}
+          <div className="arrow-container">
             {/* Desktop Right Arrow */}
-            <motion.svg
+            <svg
               className="desktop-arrow"
               width="50"
               height="50"
@@ -263,19 +241,13 @@ const Rename = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              animate={{ x: [0, 15, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 1.5,
-                ease: "easeInOut",
-              }}
             >
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
-            </motion.svg>
+            </svg>
 
             {/* Mobile Down Arrow */}
-            <motion.svg
+            <svg
               className="mobile-arrow"
               width="35"
               height="35"
@@ -285,25 +257,14 @@ const Rename = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              animate={{ y: [0, 10, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 1.5,
-                ease: "easeInOut",
-              }}
             >
               <line x1="12" y1="5" x2="12" y2="19"></line>
               <polyline points="19 12 12 19 5 12"></polyline>
-            </motion.svg>
-          </motion.div>
+            </svg>
+          </div>
 
           {/* NEW COMPANY BOX */}
-          <motion.div
-            className="entity-box new"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+          <div className="entity-box new">
             <div
               style={{
                 fontSize: "11px",
@@ -352,12 +313,11 @@ const Rename = () => {
                 PVT. LTD.
               </span>
             </h3>
-          </motion.div>
+          </div>
         </div>
 
         {/* DESCRIPTION - FIXED ALIGNMENT */}
-        <motion.p
-          {...fadeUp}
+        <p
           style={{
             fontSize: "clamp(15px, 2vw, 17px)",
             lineHeight: "1.8",
@@ -378,7 +338,7 @@ const Rename = () => {
           </strong>{" "}
           remain stronger than ever. We look forward to building the future with
           the same dedication you have always trusted.
-        </motion.p>
+        </p>
       </div>
     </section>
   );

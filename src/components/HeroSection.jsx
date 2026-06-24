@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 // 1. Import all 6 images directly from your assets folder
-// Matching the exact file extensions seen in your screenshot
-import hs1 from "../assets/hs1.png";
-import hs2 from "../assets/hs2.png";
-import hs3 from "../assets/hs3.jpeg";
-import hs4 from "../assets/hs4.PNG";
-import hs5 from "../assets/hs5.PNG";
+import hs1 from "../assets/hs1.webp";
+import hs2 from "../assets/hs2.webp";
+import hs3 from "../assets/hs3.webp";
+import hs4 from "../assets/hs4.webp";
+import hs5 from "../assets/hs5.webp";
 import hs6 from "../assets/hs6.webp";
 
 const HeroSection = () => {
@@ -137,8 +136,8 @@ const HeroSection = () => {
              ========================================= */
           @media (max-width: 768px) {
             .hero-container {
-              min-height: 450px; /* Increased height for mobile */
-              height: 60vh;      /* Takes up more of the mobile screen */
+              min-height: calc(100vh - 60px); /* FIXED: Covers full screen on mobile */
+              height: calc(100vh - 60px);     /* FIXED: Covers full screen on mobile */
             }
             .white-tag {
               bottom: 25px;      
@@ -157,8 +156,10 @@ const HeroSection = () => {
             src={imgSrc}
             alt={`Divya Global Infra Slide ${index + 1}`}
             className={`hero-image ${index === currentSlide ? "active" : ""}`}
-            // Add a high-priority fetch hint to the very first image to help it load faster
-            fetchpriority={index === 0 ? "high" : "auto"}
+            fetchPriority={index === 0 ? "high" : "auto"}
+            loading={
+              index === 0 ? "eager" : "lazy"
+            } /* FIXED: Eager load the first, lazy load the rest for performance */
           />
         ))}
       </div>
