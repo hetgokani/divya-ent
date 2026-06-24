@@ -190,8 +190,8 @@ const Management = () => {
                 maxWidth: "600px",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: index % 2 === 0 ? "flex-start" : "flex-end",
-                textAlign: index % 2 === 0 ? "left" : "right",
+                alignItems: "flex-start", // FIXED: Always align headers to the left
+                textAlign: "left", // FIXED: Always keep text flowing naturally from the left
               }}
               initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -227,6 +227,7 @@ const Management = () => {
                   lineHeight: "1.8",
                   opacity: 0.9,
                   margin: 0,
+                  textAlign: "justify", // FIXED: Forces text to align evenly on BOTH sides
                 }}
               >
                 {leader.bio}

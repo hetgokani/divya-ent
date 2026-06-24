@@ -77,7 +77,7 @@ const Water = () => {
           .hero-text { font-size: clamp(28px, 8vw, 38px) !important; }
         }
 
-        /* NEW MEDIA QUERY FOR SMALL MOBILE (like 375px shown in screenshot) */
+        /* NEW MEDIA QUERY FOR SMALL MOBILE */
         @media (max-width: 480px) {
           .hero-text { 
             font-size: clamp(22px, 7vw, 26px) !important; 
@@ -240,7 +240,6 @@ const Water = () => {
                   padding: 0,
                   margin: 0,
                   display: "grid",
-                  // Properly handles column layout on different screens
                   gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
                   gap: "18px",
                 }}
@@ -260,7 +259,7 @@ const Water = () => {
                       fontWeight: "600",
                       fontSize: "15px",
                       display: "flex",
-                      alignItems: "flex-start", // Anchors dot to the top of text
+                      alignItems: "flex-start",
                       gap: "12px",
                       lineHeight: "1.5",
                     }}
@@ -272,8 +271,8 @@ const Water = () => {
                         height: "8px",
                         backgroundColor: theme.navyBlue,
                         borderRadius: "50%",
-                        marginTop: "7px", // Fine-tuned vertical alignment
-                        flexShrink: 0, // Prevents dot from warping
+                        marginTop: "7px",
+                        flexShrink: 0,
                       }}
                     />
                     {item}
@@ -284,7 +283,8 @@ const Water = () => {
           </motion.div>
 
           {/* RIGHT SIDE: IMAGE CONTAINER */}
-          <div style={{ position: "relative" }}>
+          {/* FIXED: Added height: "fit-content" to prevent the container from stretching */}
+          <div style={{ position: "relative", height: "fit-content" }}>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -346,14 +346,14 @@ const Water = () => {
               </div>
             </motion.div>
 
-            {/* Subtle Yellow Accent Block behind image */}
+            {/* FIXED: Yellow Accent Block now perfectly frames the image uniformly */}
             <div
               style={{
                 position: "absolute",
-                top: "-20px",
-                right: "-20px",
-                width: "100%",
-                height: "100%",
+                top: "-15px",
+                left: "-15px",
+                right: "-15px",
+                bottom: "-15px",
                 border: `2px solid ${theme.gold}`,
                 zIndex: 1,
                 pointerEvents: "none",

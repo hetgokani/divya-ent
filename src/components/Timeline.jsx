@@ -44,6 +44,11 @@ const Timeline = () => {
       title: "MEGA PROJECTS",
       desc: "Currently executing Multi-Crore Government Infrastructure Projects, defining the future of Gujarat's development.",
     },
+    {
+      year: "2026",
+      title: "GLOBAL IDENTITY",
+      desc: "Officially transitioned from Divya Enterprise to Divya Global Infra Pvt. Ltd. marking a new milestone in corporate growth and infrastructure excellence.",
+    },
   ];
 
   const styles = {

@@ -275,11 +275,7 @@ const AboutUs = () => {
                     textTransform: "uppercase",
                     letterSpacing: "4px",
                   }}
-                >
-                  <textPath xlinkHref="#tPath">
-                    • THE • ELITE • QUALITY • POWER •
-                  </textPath>
-                </text>
+                ></text>
               </svg>
             </div>
           </div>

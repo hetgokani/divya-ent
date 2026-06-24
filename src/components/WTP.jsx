@@ -271,7 +271,8 @@ const WTP = () => {
           </motion.div>
 
           {/* RIGHT SIDE: IMAGE CONTAINER */}
-          <div style={{ position: "relative" }}>
+          {/* FIXED: Added height: "fit-content" to prevent the container from stretching */}
+          <div style={{ position: "relative", height: "fit-content" }}>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -333,14 +334,14 @@ const WTP = () => {
               </div>
             </motion.div>
 
-            {/* Subtle Yellow Accent Block behind image */}
+            {/* FIXED: Yellow Accent Block now perfectly frames the image uniformly */}
             <div
               style={{
                 position: "absolute",
-                top: "-20px",
-                right: "-20px",
-                width: "100%",
-                height: "100%",
+                top: "-15px",
+                left: "-15px",
+                right: "-15px",
+                bottom: "-15px",
                 border: `2px solid ${theme.gold}`,
                 zIndex: 1,
                 pointerEvents: "none",

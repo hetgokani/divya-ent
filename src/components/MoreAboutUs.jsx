@@ -65,7 +65,10 @@ const MoreAboutUs = () => {
             gap: 60px !important; 
           }
           .hero-text { font-size: clamp(40px, 8vw, 55px) !important; }
-          .header-block { margin-bottom: 40px !important; }
+          .header-block { 
+            margin-bottom: 30px !important;
+            margin-top: 40px !important; 
+          }
         }
 
         @media (max-width: 640px) {
@@ -78,12 +81,6 @@ const MoreAboutUs = () => {
           .hero-text { font-size: clamp(35px, 10vw, 45px) !important; }
           .side-text-decor { display: none; }
         }
-          @media (max-width: 1024px) {
-    .header-block {
-        margin-bottom: 30px !important;
-        margin-top: 40px !important;
-    }
-}
       `}</style>
 
       {/* Grid Overlay */}
@@ -284,7 +281,8 @@ const MoreAboutUs = () => {
           </motion.div>
 
           {/* RIGHT SIDE: IMAGE */}
-          <div style={{ position: "relative" }}>
+          {/* FIXED: Added height: "fit-content" to prevent the container from stretching */}
+          <div style={{ position: "relative", height: "fit-content" }}>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -338,14 +336,14 @@ const MoreAboutUs = () => {
               </div>
             </motion.div>
 
-            {/* Subtle Yellow Accent Block behind image */}
+            {/* FIXED: Yellow Accent Block now perfectly frames the image uniformly */}
             <div
               style={{
                 position: "absolute",
-                top: "-20px",
-                right: "-20px",
-                width: "100%",
-                height: "100%",
+                top: "-15px",
+                left: "-15px",
+                right: "-15px",
+                bottom: "-15px",
                 border: `2px solid ${theme.gold}`,
                 zIndex: 1,
                 pointerEvents: "none",

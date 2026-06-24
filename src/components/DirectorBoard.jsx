@@ -176,7 +176,7 @@ const DirectorBoard = () => {
                     boxShadow: "5px 5px 0px " + colors.primary,
                   }}
                 >
-                  {leader.unit}
+                  {leader.unit || "DIRECTOR"}
                 </div>
               </div>
             </motion.div>
@@ -233,6 +233,7 @@ const DirectorBoard = () => {
                   opacity: 0.8,
                   fontWeight: "400",
                   margin: 0,
+                  textAlign: "justify", // FIXED: Forces text to align evenly on BOTH sides
                 }}
               >
                 {leader.bio}

@@ -7,14 +7,18 @@ import Management from "../components/Management";
 import ProjectPortfolio from "../components/ProjectPortfolio";
 import Services from "../components/Services";
 import Footer from "../components/Footer";
+import Rename from "../components/Rename";
 const HomePage = () => {
   return (
     <>
       <Header />
       <HeroSection />
+
       <AboutUs />
+      <Rename />
       <Timeline />
       <Management />
+
       <ProjectPortfolio />
       <Services />
       <Footer />
