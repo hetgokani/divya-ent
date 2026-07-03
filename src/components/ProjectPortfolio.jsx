@@ -14,60 +14,111 @@ const ProjectPortfolio = () => {
   const completed = [
     {
       sn: 1,
-      principal: "Sardar Sarovar Narmada Nigam Ltd",
-      type: "Pipe Work & Canal Work",
-      amount: "10,947.32",
+      principal: "Sardar Sarovar Narmada Nigam Limited",
+      amount: "14,977.67",
     },
     {
       sn: 2,
-      principal: "Public Implementation Unit",
-      type: "Building Work",
-      amount: "1,919.15",
+      principal: "Gujarat Water Supply and Sewerage Board",
+      amount: "1,33,295.42",
     },
     {
       sn: 3,
-      principal: "Narmada Water Resources",
-      type: "Canal Work & RCC, NP3 Pipe Work",
-      amount: "5,788.15",
+      principal: "Gujarat Water Resources Development Corporation Ltd",
+      amount: "7,592.77",
     },
     {
       sn: 4,
-      principal: "Gujarat Water Supply & Sewerage Board",
-      type: "Pipe Work & RCC Work",
-      amount: "72,853.96",
+      principal: "Narmada Water Resources",
+      amount: "3,735.32",
     },
     {
       sn: 5,
-      principal: "Gujarat Water Resources Development Corp Ltd",
-      type: "PMKSY Irrigation Scheme",
-      amount: "7,592.77",
+      principal: "Roads and Buildings",
+      amount: "32.09",
+    },
+    {
+      sn: 6,
+      principal: "Karjan Nagarpalika",
+      amount: "355.94",
+    },
+    {
+      sn: 7,
+      principal: "Rajkot Urban Development Authority",
+      amount: "475.49",
+    },
+    {
+      sn: 8,
+      principal: "Gujarat Council of School Education",
+      amount: "57.65",
+    },
+    {
+      sn: 9,
+      principal: "Rajkot Municipal Corporation",
+      amount: "97.07",
+    },
+    {
+      sn: 10,
+      principal: "Gujarat Industrial Development Corporation",
+      amount: "955.59",
+    },
+    {
+      sn: 11,
+      principal: "Public Implementation Unit",
+      amount: "919.15",
     },
   ];
 
   const ongoing = [
     {
       sn: 1,
-      principal: "Gujarat Water Supply & Sewerage Board",
-      type: "Pipe Work & RCC Work",
-      amount: "50,078.69",
+      principal: "Sardar Sarovar Narmada Nigam Limited",
+      amount: "184.83",
     },
     {
       sn: 2,
-      principal: "Narmada Water Resources",
-      type: "Pipe Work & RCC Work",
-      amount: "25,404.74",
+      principal: "Gujarat Water Supply and Sewerage Board",
+      amount: "89,805.16",
     },
     {
       sn: 3,
-      principal: "Gujarat Council of School Education",
-      type: "Building Work",
-      amount: "2,766.52",
+      principal: "Surat Municipal Corporation",
+      amount: "9,073.81",
     },
     {
       sn: 4,
+      principal: "Narmada Water Resources",
+      amount: "18,298.80",
+    },
+    {
+      sn: 5,
+      principal: "Gujarat Urban Developments Corporation",
+      amount: "1,793.75",
+    },
+    {
+      sn: 6,
+      principal: "Karjan Nagarpalika",
+      amount: "387.47",
+    },
+    {
+      sn: 7,
       principal: "Rajkot Urban Development Authority",
-      type: "Pipe Work & RCC Work",
-      amount: "2,584.57",
+      amount: "2,010.10",
+    },
+    {
+      sn: 8,
+      principal: "Gujarat Council of School Education",
+      amount: "5,764.41",
+    },
+    {
+      sn: 9,
+      principal: "Rajkot Municipal Corporation",
+      amount: "130.37",
+    },
+    {
+      sn: 10,
+      principal: "Gujarat Industrial Development Corporation",
+      amount: "64.28",
     },
   ];
 
@@ -85,7 +136,9 @@ const ProjectPortfolio = () => {
         }}
       >
         {title}{" "}
-        <span style={{ fontSize: "12px", opacity: 0.6 }}>(RS. IN LACS)</span>
+        <span style={{ fontSize: "12px", opacity: 0.6 }}>
+          (RS. IN LACS) 30-06-2026
+        </span>
       </h3>
 
       {/* Header - Hidden on Mobile */}
@@ -103,11 +156,8 @@ const ProjectPortfolio = () => {
         <div style={{ flex: "0.5" }} className="hide-mobile">
           SR.
         </div>
-        <div style={{ flex: "2" }}>PRINCIPAL</div>
-        <div style={{ flex: "2" }} className="hide-mobile">
-          WORK TYPE
-        </div>
-        <div style={{ flex: "1.5", textAlign: "right" }}>COST</div>
+        <div style={{ flex: "4" }}>PRINCIPAL</div>
+        <div style={{ flex: "1.5", textAlign: "right" }}>COST OF WORK</div>
       </div>
 
       {/* Data Rows */}
@@ -131,11 +181,8 @@ const ProjectPortfolio = () => {
           >
             {row.sn}
           </div>
-          <div style={{ flex: "2", fontWeight: "700", paddingRight: "10px" }}>
+          <div style={{ flex: "4", fontWeight: "700", paddingRight: "10px" }}>
             {row.principal}
-          </div>
-          <div style={{ flex: "2", opacity: 0.8 }} className="hide-mobile">
-            {row.type}
           </div>
           <div
             style={{
@@ -232,14 +279,14 @@ const ProjectPortfolio = () => {
         </div>
 
         <TableBlock
-          title="SUCCESSFULLY COMPLETED"
+          title="SUCCESSFULLY WORK COMPLETED"
           data={completed}
-          total="99,101.35"
+          total="1,62,494.16"
         />
         <TableBlock
           title="CURRENT WORK ON HAND"
           data={ongoing}
-          total="80,834.52"
+          total="1,27,512.98"
         />
       </motion.div>
     </section>

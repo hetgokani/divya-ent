@@ -13,7 +13,7 @@ const AboutUs = () => {
   const stats = [
     { value: "12+", label: "YEARS ELAPSED" },
     { value: "100%", label: "SUCCESS RATE" },
-    { value: "₹991 Cr+", label: "Completed Projects" },
+    { value: "₹1,624 Cr+", label: "Completed Projects" },
   ];
 
   return (
@@ -175,7 +175,7 @@ const AboutUs = () => {
 
           <div
             className="stats-row"
-            style={{ display: "flex", gap: "50px", flexWrap: "wrap" }}
+            style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}
           >
             {stats.map((s, i) => (
               <motion.div
