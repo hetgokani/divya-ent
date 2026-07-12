@@ -282,7 +282,7 @@ const Footer = () => {
           <div className="footer-brand-col">
             <img
               src={logo}
-              alt="Divya Global Infra Pvt. Ltd."
+              alt="Divya Global Infra Ltd."
               style={styles.logoImg}
             />
             <p style={styles.desc}>
@@ -412,8 +412,8 @@ const Footer = () => {
           <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
             <div>
               {/* Dynamic Auto-Updating Year */}
-              &copy; {new Date().getFullYear()} Divya Global Infra Pvt. Ltd..
-              All Rights Reserved.
+              &copy; {new Date().getFullYear()} Divya Global Infra Ltd. All
+              Rights Reserved.
             </div>
           </div>
 

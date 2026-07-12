@@ -155,12 +155,12 @@ const Contact = () => {
               textAlign: "justify",
             }}
           >
-            Divya Global Infra Pvt. Ltd. is a premier construction and
-            infrastructure development company dedicated to executing massive,
-            high-quality public and private projects. Whether you are inquiring
-            about our ongoing mega-projects, seeking expert structural
-            solutions, or looking to establish a corporate partnership, our team
-            is ready to assist you.
+            Divya Global Infra Ltd. is a premier construction and infrastructure
+            development company dedicated to executing massive, high-quality
+            public and private projects. Whether you are inquiring about our
+            ongoing mega-projects, seeking expert structural solutions, or
+            looking to establish a corporate partnership, our team is ready to
+            assist you.
           </p>
         </div>
 

@@ -96,7 +96,7 @@ const AboutUs = () => {
             backgroundColor: colors.primary,
           }}
         ></div>
-        Divya Global Infra Pvt. Ltd.
+        Divya Global Infra Ltd.
       </div>
 
       <div

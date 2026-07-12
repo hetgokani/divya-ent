@@ -78,7 +78,7 @@ const CompletedProjects = () => {
                 textTransform: "uppercase",
               }}
             >
-              Divya Global Infra Pvt. Ltd.
+              Divya Global Infra Ltd.
             </span>
           </div>
 

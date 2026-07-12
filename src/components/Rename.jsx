@@ -299,7 +299,7 @@ const Rename = () => {
                 letterSpacing: "-0.5px",
               }}
             >
-              DIVYA GLOBAL INFRA
+              DIVYA GLOBAL INFRA LTD.
               <span
                 style={{
                   display: "block",
@@ -309,9 +309,7 @@ const Rename = () => {
                   letterSpacing: "2px",
                   opacity: 0.8,
                 }}
-              >
-                PVT. LTD.
-              </span>
+              ></span>
             </h3>
           </div>
         </div>

@@ -180,7 +180,7 @@ const OurMission = () => {
             initial="hidden"
             whileInView="visible"
           >
-            At <strong>Divya Global Infra Pvt. Ltd.</strong>, our mission is to
+            At <strong>Divya Global Infra Ltd.</strong>, our mission is to
             deliver reliable, high-quality, and future-ready infrastructure
             solutions that contribute to the growth of communities and
             industries across India. We are committed to executing every project

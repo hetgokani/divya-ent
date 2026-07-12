@@ -177,7 +177,7 @@ const Canal = () => {
                 marginBottom: "20px",
               }}
             >
-              Divya Global Infra Pvt. Ltd. undertakes{" "}
+              Divya Global Infra Ltd. undertakes{" "}
               <strong style={{ color: theme.navyBlue }}>
                 canal construction, canal lining, and irrigation development
                 projects

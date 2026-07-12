@@ -178,7 +178,7 @@ const MoreAboutUs = () => {
                 textShadow: "1px 1px 0px rgba(0,0,0,0.1)",
               }}
             >
-              Divya Global Infra Pvt. Ltd.
+              Divya Global Infra Ltd.
             </div>
 
             <h3
@@ -203,7 +203,7 @@ const MoreAboutUs = () => {
                 marginBottom: "20px",
               }}
             >
-              Divya Global Infra Pvt. Ltd. didn't just grow; we{" "}
+              Divya Global Infra Ltd. didn't just grow; we{" "}
               <strong style={{ color: theme.navyBlue }}>reinforced</strong>.
               What started as a Civil Work Contractor in 2013 has mutated into a
               strategic force in Central Government projects.

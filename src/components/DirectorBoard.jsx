@@ -259,7 +259,7 @@ const DirectorBoard = () => {
                     letterSpacing: "3px",
                   }}
                 >
-                  Divya Global Infra Pvt. Ltd.
+                  Divya Global Infra Ltd.
                 </span>
               </div>
             </motion.div>
